@@ -1,36 +1,40 @@
-import React from 'react';
+import React from "react";
+import { UserProps } from "../../interfaces";
+import UserCard from "../../components/common/UserCard";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
-import Button from "../../components/common/Button";
 
+interface UsersPageProps {
+  posts: UserProps[];
+}
 
-const Users:React.FC = () => {
-    return (
-        <div>
-            <Header />
-            <main className="p-4">
-                <h1 className="text-xl font-semibold mb-4">Users Page</h1>
-                <Button title="Add User" />
-            </main>
-            <Footer />
-        </div>
-    );
+const Users: React.FC<UsersPageProps> = ({ posts }) => {
+  return (
+    <div>
+      <Header />
+
+      <main className="p-6">
+        <h1 className="text-3xl font-semibold mb-6">Users</h1>
+
+        {posts.map((user) => (
+          <UserCard key={user.id} user={user} />
+        ))}
+      </main>
+
+      <Footer />
+    </div>
+  );
 };
 
+export async function getStaticProps() {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const posts = await response.json();
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+
 export default Users;
-
-
-// interface ButtonProps {
-//     title: string;
-//     styles?: string;
-// }
-
-// const Button: React.FC<ButtonProps> = ({ title, styles }) => {
-//     return (
-//         <button className={ styles ? styles : "bg-blue-500 text-white px-4 py-2 rounded"}>
-//             {title}
-//         </button>
-//     );
-// };
-
-// export default Button;
