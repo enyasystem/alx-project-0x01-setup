@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
-import PostCard from "../../components/common/PostCard";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
+import PostCard from "../components/common/PostCard";
 
 const Posts: React.FC = () => {
     return (
