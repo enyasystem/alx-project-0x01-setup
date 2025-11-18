@@ -1,8 +1,11 @@
 import React from "react";
 import { UserProps } from "../../interfaces";
 
-// UserCard receives 1 user object as props
-const UserCard: React.FC<{ user: UserProps }> = ({ user }) => {
+interface Props {
+  user: UserProps;
+}
+
+const UserCard: React.FC<Props> = ({ user }) => {
   return (
     <div className="border shadow-md rounded-lg p-4 mb-4 bg-white">
       <h2 className="text-xl font-semibold">{user.name}</h2>
