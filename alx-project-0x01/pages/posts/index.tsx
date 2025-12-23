@@ -1,13 +1,16 @@
 import PostCard from "../../components/common/PostCard";
 import Header from "../../components/layout/Header";
-import { PostProps } from "../../interfaces";
+import { PostProps, PostData } from "../../interfaces";
+import React, { useState } from "react";
 
 interface PostsPageProps {
   posts: PostProps[]
 }
 
 const Posts: React.FC<PostsPageProps> = ({ posts }) => {
-  console.log(posts)
+  const [post, setPost] = useState<PostData | null>(null);
+  const [isModalOpen, setModalOpen] = useState(false);
+  console.log(posts);
   return (
     <div className="flex flex-col h-screen">
       <Header />
