@@ -1,7 +1,8 @@
+import React, { useState } from "react";
 import PostCard from "../../components/common/PostCard";
 import Header from "../../components/layout/Header";
-import { PostProps, PostData } from "../../interfaces";
-import React, { useState } from "react";
+import { PostProps } from "../../interfaces";
+import { PostData } from "../../interfaces";
 
 interface PostsPageProps {
   posts: PostProps[]
